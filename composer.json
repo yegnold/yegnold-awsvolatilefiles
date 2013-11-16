@@ -1,0 +1,20 @@
+{
+    "name": "yegnold/awsvolatilefiledownloadmirror",
+    "description": "This package will assist you in creating time-limited and optionally IP-address limited Cloudfront download URLs for resources contained within a specified Amazon S3 bucket.",
+    "authors": [
+        {
+            "name": "yegnold",
+            "email": "yegnold@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+	"php": ">=5.3.3",
+	"aws/aws-sdk-php": "2.4.*"
+    },
+    "autoload": {
+		"psr-0": {
+			"Yegnold": "src/"
+		}
+ 	}
+}

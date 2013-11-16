@@ -1,0 +1,4 @@
+vendor/
+config/aws.config.php
+config/keys/*
+composer.lock

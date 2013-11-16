@@ -1,0 +1,23 @@
+<?php return array(
+    'includes' => array('_aws'),
+    'services' => array(
+        'default_settings' => array(
+            'params' => array(
+                // Your AWS Access Key ID
+                'key'    => '',
+                // Your AWS Secret Access Key
+                'secret' => '',
+                'region' => 'eu-west-1'
+            )
+        ),
+        'cloudfront' => array(
+            'extends' => 'cloudfront',
+            'params'  => array(
+                // Path to your cloudfront private key
+                'private_key' => __DIR__.'/keys/',
+                // Cloudfront key pair ID
+                'key_pair_id' => ''
+            )
+        )
+    )
+);
