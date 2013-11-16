@@ -5,7 +5,7 @@ Assists you in creating time-limited and optionally IP-address limited Cloudfron
 
 Example use:
 
-
+```php
 use Aws\Common\Aws as Aws;
 $aws = Aws::factory('config/aws.config.php');
 use Yegnold\AwsVolatileFileDownloadMirror;
@@ -22,3 +22,4 @@ try {
 } catch(Yegnold\UnableToMirrorResourceException $e) {
 	echo $e->getMessage();
 }
+```
