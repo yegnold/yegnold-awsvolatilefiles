@@ -77,7 +77,10 @@ class AwsVolatileFileDownloadMirror  {
 	{
 
 		$s3_client = $this->aws->get('S3');
-		$s3_client->registerStreamWrapper();
+		
+		if(!$s3_client->registerStreamWrapper()) {
+			throw new UnableToMirrorResourceException('The S3 stream wrapper could not be registered.');
+		}
 
 		if(!file_exists('s3://'.$this->s3_bucket_name.'/'.$this->remote_resource_filepath)) {
 			throw new UnableToMirrorResourceException('The resource '.$this->remote_resource_filepath.' does not exist in the S3 bucket');
@@ -114,6 +117,9 @@ POLICY;
 		    'policy' => $custom_policy,
 		));
 
+		if(!strlen($signed_url_custom_policy)) {
+			throw new UnableToMirrorResourceException('Could not generate a signed URL for the resource '.$this->remote_resource_filepath);
+		}
 		return $signed_url_custom_policy;
 	}
 
